@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="11.0.0" />
+  </ItemGroup>
+
+  <!-- SQL-скрипты из папки Database копируются рядом с exe: по ним создаётся БД и строится окно запросов -->
+  <ItemGroup>
+    <None Include="..\Database\schema.sql" Link="Database\schema.sql" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\Database\seed.sql" Link="Database\seed.sql" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\Database\queries.sql" Link="Database\queries.sql" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>
